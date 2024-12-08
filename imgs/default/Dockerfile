@@ -38,15 +38,16 @@ RUN ln -sf /bin/dash /bin/sh
 RUN echo "" >> .bashrc
 
 # create user alice
-RUN useradd -m -s /bin/bash alice
+RUN useradd -m -d /home/alice -s /bin/bash alice
 RUN usermod -aG sudo alice
-RUN mkdir -p /config/workspace
 # add local files
 COPY /root /
 ## add alice to sudoers
 RUN echo "alice ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-## set /config/workspace as alice's ownership
-RUN chown -R alice:alice /config/workspace
+## set alice home dir /home/alice
+RUN mkdir -p /home/alice
+RUN chown -R alice:alice /home/alice
+RUN chmod -R 755 /home/alice
 
 
