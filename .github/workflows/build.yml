@@ -34,13 +34,11 @@ jobs:
       run: |
         cd imgs/default
         bash update.sh ${{ github.event.inputs.proglang }}
-
-    - name: Build the Docker image
-      run: |
+        
+        # Build the Docker image
         docker build -t ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]'):latest \
                  -t ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]'):${{ github.sha }} .
 
-    - name: Push the Docker image to GitHub Container Registry
-      run: |
+        # Push the Docker image
         docker push ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]'):latest
         docker push ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]'):${{ github.sha }}
