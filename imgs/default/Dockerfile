@@ -15,7 +15,6 @@ RUN \
     nano \
     net-tools \
     sudo && \
-  ln -sf /bin/dash /bin/sh \
   echo "**** install code-server ****" && \
   if [ -z ${CODE_RELEASE+x} ]; then \
     CODE_RELEASE=$(curl -sX GET https://api.github.com/repos/coder/code-server/releases/latest \
@@ -35,6 +34,7 @@ RUN \
     /var/lib/apt/lists/* \
     /var/tmp/*
 
+RUN ln -sf /bin/dash /bin/sh
 
 # create user alice
 RUN useradd -m -s /bin/bash alice
