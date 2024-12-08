@@ -2,7 +2,6 @@ FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND="noninteractive"
 
-
 RUN \
   echo "**** install runtime dependencies ****" && \
   apt-get update && \
@@ -35,6 +34,8 @@ RUN \
 
 RUN ln -sf /bin/dash /bin/sh
 RUN echo "" >> .bashrc
+
+ENV HOME="/home/alice"
 
 # create user alice
 RUN useradd -m -d /home/alice -s /bin/bash alice
