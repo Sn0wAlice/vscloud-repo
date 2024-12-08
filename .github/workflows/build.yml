@@ -31,10 +31,9 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Go to the good directory
-      run: cd ${{ github.workspace }}/imgs/default
-
-    - name: Update the docker image
-      run: bash update.sh ${{ github.event.inputs.proglang }}
+      run: |
+        cd imgs/default
+        bash update.sh ${{ github.event.inputs.proglang }}
 
     - name: Build the Docker image
       run: |
