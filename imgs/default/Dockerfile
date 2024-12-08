@@ -35,6 +35,7 @@ RUN \
     /var/tmp/*
 
 RUN ln -sf /bin/dash /bin/sh
+RUN echo "" >> .bashrc
 
 # create user alice
 RUN useradd -m -s /bin/bash alice

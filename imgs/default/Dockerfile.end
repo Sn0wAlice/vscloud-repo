@@ -2,9 +2,5 @@
 
 # set alice as the default user
 USER alice
+RUN echo "" >> .bashrc
 
-# ports and volumes
-EXPOSE 8443
-
-COPY start.sh /start.sh
-CMD ["bash", "/start.sh"]

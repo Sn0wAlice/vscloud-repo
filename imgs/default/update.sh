@@ -13,4 +13,15 @@ else
     echo "Programming language: $PROG_LANG"
     cat ../$PROG_LANG/Dockerfile >> Dockerfile
 fi
+
 cat ./Dockerfile.end >> Dockerfile
+
+if [ "$PROG_LANG" = "default" ]; then
+    # nothing
+    echo "Default"
+else
+    echo "Programming language: $PROG_LANG"
+    cat ../$PROG_LANG/Dockerfile.post >> Dockerfile
+fi
+
+cat ./Dockerfile.done >> Dockerfile
