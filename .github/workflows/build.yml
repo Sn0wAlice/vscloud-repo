@@ -36,9 +36,9 @@ jobs:
         bash update.sh ${{ github.event.inputs.proglang }}
         
         # Build the Docker image
-        docker build -t ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]'):latest \
-                 -t ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]'):${{ github.sha }} .
+        docker build -t ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')-${{ github.event.inputs.proglang }}:latest \
+                 -t ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')-${{ github.event.inputs.proglang }}:${{ github.sha }} .
 
         # Push the Docker image
-        docker push ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]'):latest
-        docker push ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]'):${{ github.sha }}
+        docker push ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')-${{ github.event.inputs.proglang }}:latest
+        docker push ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')-${{ github.event.inputs.proglang }}:${{ github.sha }}
