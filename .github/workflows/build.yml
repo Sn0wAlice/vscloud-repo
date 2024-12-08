@@ -10,6 +10,7 @@ on:
                 options:
                     - default
                     - rust
+                    - nodejs
 
 jobs:
   build:

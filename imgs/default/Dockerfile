@@ -3,17 +3,19 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV HOME="/config"
 
+
 RUN \
   echo "**** install runtime dependencies ****" && \
   apt-get update && \
   apt-get install -y \
-    sh \
+    dash \
     git \
     curl \
     libatomic1 \
     nano \
     net-tools \
     sudo && \
+  ln -sf /bin/dash /bin/sh \
   echo "**** install code-server ****" && \
   if [ -z ${CODE_RELEASE+x} ]; then \
     CODE_RELEASE=$(curl -sX GET https://api.github.com/repos/coder/code-server/releases/latest \
