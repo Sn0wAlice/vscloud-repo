@@ -1,4 +1,6 @@
-## set alice as the default user
+
+
+# set alice as the default user
 USER alice
 
 # ports and volumes
