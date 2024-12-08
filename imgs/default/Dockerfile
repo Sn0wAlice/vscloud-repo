@@ -3,7 +3,6 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND="noninteractive"
 
 RUN \
-  echo "**** install runtime dependencies ****" && \
   apt-get update && \
   apt-get install -y \
     dash \
