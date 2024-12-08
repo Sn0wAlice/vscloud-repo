@@ -2,5 +2,5 @@
 
 # set alice as the default user
 USER alice
-RUN echo "" >> .bashrc
+RUN echo "" >> ~/.bashrc
 
