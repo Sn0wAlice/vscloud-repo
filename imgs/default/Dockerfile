@@ -44,3 +44,5 @@ RUN echo "alice ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 ## set /config/workspace as alice's ownership
 RUN chown -R alice:alice /config/workspace
+
+
