@@ -7,6 +7,7 @@ RUN \
   echo "**** install runtime dependencies ****" && \
   apt-get update && \
   apt-get install -y \
+    sh \
     git \
     curl \
     libatomic1 \
